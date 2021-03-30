@@ -1,3 +1,5 @@
 npm install pg pg-hstore sequelize cors dotenv
 
 npm i -D nodemon
+
+npm i express-fileupload
