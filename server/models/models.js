@@ -149,7 +149,8 @@ Rating.belongsTo(Device)
 Device.hasMany(BasketDevice)
 BasketDevice.belongsTo(Device)
 
-Device.hasMany(DeviceInfo)
+// info - это поле, которое будет у массива характеристик
+Device.hasMany(DeviceInfo, {as: 'info'})
 DeviceInfo.belongsTo(Device)
 
 Type.belongsToMany(Brand, {through: TypeBrand}) // должна быть промежуточная таблица  TypeBrand
