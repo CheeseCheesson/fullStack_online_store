@@ -3,3 +3,9 @@ npm install pg pg-hstore sequelize cors dotenv
 npm i -D nodemon
 
 npm i express-fileupload
+
+#jwt token для генерации токена
+npm install jsonwebtoken
+
+# для того чтобы хешировать пароли  и не хранить их в БД в открытом виде
+npm i bcrypt
