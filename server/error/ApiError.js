@@ -1,6 +1,6 @@
 class ApiError extends Error{
     constructor(status, message) {
-    super();
+    super()
     this.status = status
     this.message = message
     }
@@ -15,5 +15,5 @@ class ApiError extends Error{
     }
 }
 
-console.log(ApiError.badRequest("badReq"))
-module.exports = new ApiError
+
+module.exports = ApiError

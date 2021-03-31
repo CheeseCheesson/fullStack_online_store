@@ -3,6 +3,7 @@ require('dotenv').config()
 const sequelize = require('./db')
 const models = require('./models/models')
 const cors = require('cors')
+const fileUpload = require('express-fileupload')
 const router = require('./routers/index')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 5001
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use(fileUpload({}))
 app.use('/api', router)
 /* errorHandler регистрируется в самом конце. Этот миддл веэр является замыкающим,
 поэтому внутри него не вызывается функция next, поскольку на нём работа прекращается
