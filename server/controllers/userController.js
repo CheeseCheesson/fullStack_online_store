@@ -55,7 +55,10 @@ class UserController {
         return res.json({token})
     }
     async check(req, res, next){
-        res.json({message: "ALL Whrite"})
+        // функция герерирует новый токен и отправляет его обратно на клиент
+        // если пользователь постоянно использует свой аккаунт то токен будет перезаписоваться
+        const token = generateJwt(req.user.id, req.user.email, req.user.role)
+        return res.json({token})
     }
 
 }
