@@ -9,3 +9,15 @@ npm install jsonwebtoken
 
 # для того чтобы хешировать пароли  и не хранить их в БД в открытом виде
 npm i bcrypt
+
+# развернуть рефкт в этой папке
+ npx create-react-app .
+
+ # axios  для того чтобы отправлять запросы на сервер
+ # react router dom для построения постраничной навигации
+ # mobeX стейтменеджер
+ npm i axios react-router-dom mobx mobx-react-lite
+ # используем бутстрап для вёрстки
+ npm install react-bootstrap bootstrap
+
+
