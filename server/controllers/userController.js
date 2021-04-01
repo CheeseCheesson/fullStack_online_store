@@ -55,7 +55,7 @@ class UserController {
         return res.json({token})
     }
     async check(req, res, next){
-
+        res.json({message: "ALL Whrite"})
     }
 
 }
