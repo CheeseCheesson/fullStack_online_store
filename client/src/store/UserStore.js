@@ -1,6 +1,3 @@
-// работа с mobx
-// _ - значит, что переменая изменяться не может по соглашению
-
 import {makeAutoObservable} from "mobx"
 
 export default class UserStore {
@@ -12,6 +9,7 @@ export default class UserStore {
         makeAutoObservable(this)
     }
     // создать экшены. Эти функции изменяют состояния
+
     setIsAuth(bool){
         this._isAuth = bool
     }
@@ -27,4 +25,7 @@ export default class UserStore {
         return this._user
     }
 }
+
+// работа с mobx
+// _ - значит, что переменая изменяться не может по соглашению
 
