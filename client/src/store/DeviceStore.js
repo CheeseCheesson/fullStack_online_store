@@ -12,16 +12,24 @@ export default class DeviceStore {
         this._brands = [
             // времено поместим пару объектов, пока не делали запросы к серверу
             {id: 1, name: "Samsung"},
-            {id: 2, name: "Apple"}
+            {id: 2, name: "Apple"},
+            {id: 3, name: "Nokia"},
+            {id: 4, name: "Asus"},
+            {id: 5, name: "Acer"}
         ]
         this._devices = [
-            {id: 1, name: "5", price: 12000, rating: 3, img: "2e171e8c-a985-483c-943d-852d2848d2a0.jpg"},
-            {id: 2, name: "5", price: 13000, rating: 5, img: "2e171e8c-a985-483c-943d-852d2848d2a0.jpg"},
-            {id: 3, name: "5", price: 16000, rating: 3, img: "2e171e8c-a985-483c-943d-852d2848d2a0.jpg"},
-            {id: 4, name: "5", price: 128000, rating: 2, img: "2e171e8c-a985-483c-943d-852d2848d2a0.jpg"}
+            {id: 1, name: "Nokia 5", price: 12000, rating: 3, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
+            {id: 2, name: "Nokia 5", price: 13000, rating: 5, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
+            {id: 3, name: "Nokia 5", price: 16000, rating: 3, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
+            {id: 4, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
+            {id: 5, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
+            {id: 6, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
+            {id: 7, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
+            {id: 8, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
         ]
         // место для хранения выделенного типа
         this._selectedType = {}
+        this._selectedBrand = {}
 
         makeAutoObservable(this)
     }
@@ -39,6 +47,9 @@ export default class DeviceStore {
     setSelectedType(type){
         this._selectedType = type
     }
+    setSelectedBrand(brand){
+        this._selectedBrand = brand
+    }
 
     get types(){
         return this._types
@@ -51,6 +62,9 @@ export default class DeviceStore {
     }
     get selectedType(){
         return this._selectedType
+    }
+    get selectedBrand(){
+        return this._selectedBrand
     }
 }
 
