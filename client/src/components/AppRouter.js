@@ -3,8 +3,9 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import {authRoutes, publicRoutes} from "../routes";
 import {SHOP_ROUTE} from "../utils/consts";
 import {Context} from "../index";
+import {observer} from "mobx-react-lite";
 
-const AppRouter = () => {
+const AppRouter = observer(() => {
     // имеет глобальное хранилище, и в любом месте нашего приложния мы можем получать из него данные
     const {user} = useContext(Context)
     return (
@@ -18,7 +19,7 @@ const AppRouter = () => {
             <Redirect to={SHOP_ROUTE}/>
         </Switch>
     );
-};
+});
 export default AppRouter;
 
 // При указании нескльих маршрутов, например перечня страничек,

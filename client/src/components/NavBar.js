@@ -3,23 +3,28 @@ import {Context} from "../index";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import {NavLink} from "react-router-dom";
-import {SHOP_ROUTE} from "../utils/consts";
+import {ADMIN_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../utils/consts";
 import Button from "react-bootstrap/Button";
 import {observer} from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
+import {useHistory} from 'react-router-dom'
+
 
 const NavBar = observer (() => {
+
     // получаем юзерстор из контехта
     // в зависимости, от того, авторизован пользователь или нет навбар будет отображаться по разному
     const {user} = useContext(Context)
+    const history = useHistory()
+
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
                 <NavLink style={{color: 'white'}} to={SHOP_ROUTE}>Купить девайс</NavLink>
                 {user.isAuth ?
                     <Nav className="ml-auto" style={{color: 'white'}}>
-                        <Button variant={'outline-light'}>Админ панель</Button>
-                        <Button variant={'outline-light'} className="ml-2">Выйти</Button>
+                        <Button variant={'outline-light'} onClick={() => history.push(ADMIN_ROUTE)}>Админ панель</Button>
+                        <Button variant={'outline-light'} onClick={() => history.push(LOGIN_ROUTE)} className="ml-2">Выйти</Button>
                     </Nav>
                     :
                     <Nav className="ml-auto" style={{color: 'white'}}>

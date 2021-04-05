@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import UserStore from "./store/UserStore";
 import DeviceStore from "./store/DeviceStore";
+require('dotenv').config()
 
 // прокидываем состояния в компоненты
 export const Context = createContext(null)
