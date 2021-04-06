@@ -2,34 +2,15 @@ import {makeAutoObservable} from "mobx"
 
 export default class DeviceStore {
     constructor() {
-        this._types = [
-            // времено поместим пару объектов, пока не делали запросы к серверу
-            {id: 1, name: "Холодильник"},
-            {id: 2, name: "Смартфон"},
-            {id: 3, name: "Ноутбуки"},
-            {id: 4, name: "Телевизоры"}
-        ]
-        this._brands = [
-            // времено поместим пару объектов, пока не делали запросы к серверу
-            {id: 1, name: "Samsung"},
-            {id: 2, name: "Apple"},
-            {id: 3, name: "Nokia"},
-            {id: 4, name: "Asus"},
-            {id: 5, name: "Acer"}
-        ]
-        this._devices = [
-            {id: 1, name: "Nokia 5", price: 12000, rating: 3, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
-            {id: 2, name: "Nokia 5", price: 13000, rating: 5, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
-            {id: 3, name: "Nokia 5", price: 16000, rating: 3, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
-            {id: 4, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
-            {id: 5, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
-            {id: 6, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
-            {id: 7, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
-            {id: 8, name: "Nokia 5", price: 128000, rating: 2, img: "https://purposechurch.com/wp-content/uploads/2021/03/Rooted-HOMEPAGE-SQUARE.jpg"},
-        ]
+        this._types = []
+        this._brands = []
+        this._devices = []
         // место для хранения выделенного типа
         this._selectedType = {}
         this._selectedBrand = {}
+        this._page = 1
+        this._totalCount = 0
+        this._limit = 3
 
         makeAutoObservable(this)
     }
@@ -50,6 +31,13 @@ export default class DeviceStore {
     setSelectedBrand(brand){
         this._selectedBrand = brand
     }
+    setPage(page){
+        this._page = page
+    }
+    setTotalCount(count){
+        this._totalCount = count
+    }
+
 
     get types(){
         return this._types
@@ -61,10 +49,21 @@ export default class DeviceStore {
         return this._devices
     }
     get selectedType(){
+        this.setPage(1)
         return this._selectedType
     }
     get selectedBrand(){
+        this.setPage(1)
         return this._selectedBrand
+    }
+    get totalCount(){
+        return this._totalCount
+    }
+    get page(){
+        return this._page
+    }
+    get limit(){
+        return this._limit
     }
 }
 
